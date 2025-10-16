@@ -23,8 +23,8 @@ next
 1. Clone the repo
 
     ```bash
-    git clone https://github.com/GreatStackDev/QuickCart.git
-    cd QuickCart
+    git clone https://github.com/harshrajput4343/new-Quickcart.git
+    cd new-quickCart
     ```
 
 2. Install dependencies
