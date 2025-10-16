@@ -14,6 +14,12 @@ const nextConfig = {
             },
         ],
     },
+    webpack: (config, { isServer }) => {
+        if (isServer) {
+            config.externals.push('styled-jsx');
+        }
+        return config;
+    },
 };
 
 export default nextConfig;

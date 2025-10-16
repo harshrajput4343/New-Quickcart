@@ -1,7 +1,10 @@
 import { serve } from "inngest/next";
-import { inngest } from "@/config/innjest";
+import { inngest, syncUserCreation, syncUserUpdation, syncUserDeletion } from "@/config/innjest";
 
-// Create an API that serves zero functions
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 export const { GET, POST, PUT } = serve({
   client: inngest,
   functions: [
