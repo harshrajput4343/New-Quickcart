@@ -7,9 +7,7 @@ import Image from "next/image";
 import { useClerk, UserButton } from "@clerk/nextjs";
 import { ShoppingBag } from "lucide-react";
 
-
 const Navbar = () => {
-
   const { isSeller, router, user } = useAppContext();
   const { openSignIn } = useClerk();
 
@@ -20,6 +18,8 @@ const Navbar = () => {
         onClick={() => router.push('/')}
         src={assets.logo}
         alt="logo"
+        width={128}
+        height={40}
       />
       <div className="flex items-center gap-4 lg:gap-8 max-md:hidden">
         <Link href="/" className="hover:text-gray-900 transition">
@@ -47,35 +47,55 @@ const Navbar = () => {
       </div>
 
       <ul className="hidden md:flex items-center gap-4 ">
-        <Image className="w-4 h-4" src={assets.search_icon} alt="search icon" />
+        <Image 
+          className="w-4 h-4" 
+          src={assets.search_icon} 
+          alt="search icon" 
+          width={16} 
+          height={16} 
+        />
         {
           user 
            ? <>
               <UserButton >
-
                 <UserButton.MenuItems> 
                   <UserButton.Action label='cart' labelIcon={<CartIcon />} onClick={()=> router.push('/cart')}/>
                 </UserButton.MenuItems>
                  <UserButton.MenuItems> 
                   <UserButton.Action label='My Orders' labelIcon={<ShoppingBag size={18} />} onClick={()=> router.push('/my-orders')}/>
                 </UserButton.MenuItems>
-                
               </UserButton>
             </> 
-           :  <button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
-              <Image src={assets.user_icon} alt="user icon" />
+           :  <button 
+                onClick={openSignIn} 
+                className="flex items-center gap-2 hover:text-gray-900 transition"
+                suppressHydrationWarning
+              >
+              <Image 
+                src={assets.user_icon} 
+                alt="user icon" 
+                width={20} 
+                height={20} 
+              />
               Account
            </button>
         }
       </ul>
 
       <div className="flex items-center md:hidden gap-3">
-        {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
+        {isSeller && (
+          <button 
+            onClick={() => router.push('/seller')} 
+            className="text-xs border px-4 py-1.5 rounded-full"
+            suppressHydrationWarning
+          >
+            Seller Dashboard
+          </button>
+        )}
        {
           user 
            ? <>
               <UserButton >
-
                 <UserButton.MenuItems> 
                   <UserButton.Action label='Home' labelIcon={<HomeIcon />} onClick={()=> router.push('/')}/>
                 </UserButton.MenuItems>
@@ -88,11 +108,19 @@ const Navbar = () => {
                  <UserButton.MenuItems> 
                   <UserButton.Action label='My Orders' labelIcon={<ShoppingBag size={18} />} onClick={()=> router.push('/my-orders')}/>
                 </UserButton.MenuItems>
-                
               </UserButton>
             </> 
-           :  <button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
-              <Image src={assets.user_icon} alt="user icon" />
+           :  <button 
+                onClick={openSignIn} 
+                className="flex items-center gap-2 hover:text-gray-900 transition"
+                suppressHydrationWarning
+              >
+              <Image 
+                src={assets.user_icon} 
+                alt="user icon" 
+                width={20} 
+                height={20} 
+              />
               Account
            </button>
         }
