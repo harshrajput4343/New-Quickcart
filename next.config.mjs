@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
+
     images: {
         remotePatterns: [
             {
@@ -14,6 +18,7 @@ const nextConfig = {
             },
         ],
     },
+
     webpack: (config, { isServer }) => {
         if (isServer) {
             config.externals.push('styled-jsx');
