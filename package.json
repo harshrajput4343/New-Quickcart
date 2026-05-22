@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.11.4",
+    "@clerk/nextjs": "^6.33.6",
     "axios": "^1.12.2",
     "cloudinary": "^2.7.0",
     "inngest": "^3.44.3",
